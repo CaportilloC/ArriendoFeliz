@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1>Hola, Bienvenido al Sistema: @User.Identity.Name </h1>
+    <h1 class="display-4">Bienvenidos a Arriendo Feliz Gestion de Renta de Automoviles</h1>
+    <div class="form-group text-center">
+        <img src="~/Images/auto.png" alt="Descripción de la imagen" width="30%" height="30%">
+        <h3>
+            Auto Feliz
+        </h3>
+    </div>
+</div>

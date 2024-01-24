@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ArriendoFeliz.Entidades.Arriendo>
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 bg-second-primary">
+            <h6 class="m-0 font-weight-bold text-Dark">Reporte de Arriendos (Listado Dos)</h6>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ejs-grid id="Grid" dataSource="ViewBag.dataSource" allowPaging="true" allowSorting="true" allowResizing="true" allowReordering="true" allowGrouping="true" toolbar="@(new List<string>() { "Search"})" allowFiltering="true" allowSelection="true">
+                        <e-grid-filterSettings type="Menu"></e-grid-filterSettings>
+                        <e-grid-selectionsettings type="Single"></e-grid-selectionsettings>
+                        <e-grid-pagesettings pageCount="5" pageSize="5"></e-grid-pagesettings>
+                        <e-grid-columns>
+                            <e-grid-column field="Cliente" headerText="Cliente"></e-grid-column>
+                            <e-grid-column field="Patente" headerText="Patente" width="100"></e-grid-column>
+                            <e-grid-column field="Marca" headerText="Marca" width="100"></e-grid-column>
+                            <e-grid-column field="Modelo" headerText="Modelo" width="100"></e-grid-column>
+                            <e-grid-column field="FechaInicio" headerText="Inicio" width="120" format="dd-MM-yyyy"></e-grid-column>
+                            <e-grid-column field="FechaFin" headerText="Términa" width="120" format="dd-MM-yyyy"></e-grid-column>
+                            <e-grid-column field="DiasArriendo" headerText="Días de Arriendo"></e-grid-column>
+                        </e-grid-columns>
+                    </ejs-grid>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

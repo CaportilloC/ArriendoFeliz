@@ -1,0 +1,71 @@
+﻿@model ArriendoFeliz.Entidades.Arriendo
+<script src="~/js/validation.js"></script>
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 bg-second-primary">
+            <h6 class="m-0 font-weight-bold text-Dark">Crear Nueva Renta de Auto</h6>
+        </div>
+        <div class="card-body">
+            <div class="col-sm-12">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label asp-for="ClienteId" class="control-label">Cliente</label>
+                            <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId">
+                                <option value="">Seleccionar...</option>
+                            </select>
+                            <span asp-validation-for="ClienteId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MarcaId" class="control-label">Marca</label>
+                            <select asp-for="MarcaId" class="form-control" asp-items="ViewBag.MarcaId">
+                                <option value="">Seleccionar...</option>
+                            </select>
+                            <span asp-validation-for="MarcaId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ModeloId" class="control-label">Modelo</label>
+                            <select asp-for="ModeloId" class="form-control" asp-items="ViewBag.ModeloId">
+                                <option value="">Seleccionar...</option>
+                            </select>
+                            <span asp-validation-for="ModeloId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FechaInicio" class="control-label"></label>
+                            <input asp-for="FechaInicio" class="form-control" type="date" asp-format="{0:yyyy-MM-dd}" onchange="validateDates()" />
+                            <span asp-validation-for="FechaInicio" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FechaFin" class="control-label"></label>
+                            <input asp-for="FechaFin" class="form-control" type="date" asp-format="{0:yyyy-MM-dd}" onchange="validateDates()" />
+                            <span asp-validation-for="FechaFin" class="text-danger"></span>
+                        </div>
+                        <div id="dateError" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Patente" class="control-label"></label>
+                            <input asp-for="Patente" class="form-control" />
+                            <span asp-validation-for="Patente" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group text-center">
+                        <input type="submit" value="Create" class="btn btn-outline-primary" />
+                        <button id="backToList" type="button" class="btn btn-outline-danger" onclick="window.location.href='@Url.Action("Index", "Arriendos")'">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
